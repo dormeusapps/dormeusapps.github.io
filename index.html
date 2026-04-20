@@ -4,181 +4,349 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DORMEUSAPPS LLC | MakesSense</title>
-  <meta
-    name="description"
-    content="DORMEUSAPPS LLC builds MakesSense, an educational math app with step-by-step solutions, interactive learning, graphing, and visual explanations."
-  />
+  <meta name="description" content="DORMEUSAPPS LLC builds MakesSense, an educational math app with step-by-step solutions, interactive learning, graphing, and visual explanations." />
 
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #0b0b0f;
-      --panel: rgba(255,255,255,0.06);
-      --panel-border: rgba(255,255,255,0.12);
-      --text: #f5f5f7;
-      --muted: #b7b7c2;
+      --bg: #0e0e16;
+      --surface: #16161f;
+      --surface-2: #1e1e2a;
+      --border: rgba(255,255,255,0.10);
+      --border-strong: rgba(255,255,255,0.18);
+      --text: #f0f0f4;
+      --muted: #9494a8;
       --accent: #8b7cff;
       --accent-2: #57d3ff;
-      --card-radius: 22px;
-      --max: 1100px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --max: 900px;
     }
-
-    * { box-sizing: border-box; }
 
     html, body {
-      margin: 0;
-      padding: 0;
-      background:
-        radial-gradient(circle at top left, rgba(87,211,255,0.14), transparent 28%),
-        radial-gradient(circle at top right, rgba(139,124,255,0.18), transparent 30%),
-        linear-gradient(180deg, #11111a 0%, #0b0b0f 100%);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse at 15% 0%, rgba(87,211,255,0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 0%, rgba(139,124,255,0.14) 0%, transparent 50%);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
-    a {
-      color: var(--text);
-      text-decoration: none;
-    }
+    a { text-decoration: none; color: inherit; }
 
-    .wrap {
+    .page {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 28px 20px 60px;
+      padding: 0 20px 64px;
     }
 
+    /* ── Nav ── */
     .nav {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 32px;
+      align-items: center;
+      padding: 22px 0 22px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .brand {
-      font-size: 14px;
+      font-size: 12px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      font-weight: 600;
       color: var(--muted);
-      font-weight: 700;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
+      transition: color 0.15s;
     }
 
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Hero ── */
     .hero {
       text-align: center;
-      padding: 42px 0 28px;
+      padding: 56px 16px 40px;
     }
 
     .eyebrow {
       display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid var(--panel-border);
-      background: var(--panel);
+      padding: 6px 16px;
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
       border-radius: 999px;
       color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 18px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      margin-bottom: 22px;
     }
 
-    h1 {
-      font-size: 64px;
-      margin: 0;
+    .hero h1 {
+      font-size: clamp(36px, 7vw, 62px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 40%, #c0b8ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .tagline {
-      margin-top: 16px;
-      font-size: 26px;
-      font-weight: 700;
+      font-size: clamp(18px, 3.5vw, 24px);
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 18px;
     }
 
     .subtext {
-      margin-top: 18px;
+      font-size: 15px;
       color: var(--muted);
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 540px;
+      margin: 0 auto 32px;
+      line-height: 1.65;
     }
 
     .cta-row {
-      margin-top: 28px;
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .button {
-      padding: 12px 18px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 12px 22px;
       border-radius: 999px;
-      border: 1px solid var(--panel-border);
-      background: var(--panel);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-2);
+      color: var(--text);
     }
 
-    .button.primary {
+    .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn:active { transform: scale(0.98); }
+
+    .btn.primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: black;
+      color: #07070f;
+      border: none;
+      font-weight: 600;
     }
 
-    .grid {
+    /* ── Feature cards ── */
+    .features {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 44px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 48px;
     }
 
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--card-radius);
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
       padding: 22px;
+      transition: border-color 0.2s;
     }
 
+    .feature-card:hover { border-color: var(--border-strong); }
+
+    .feature-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-md);
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .feature-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── App section ── */
     .section {
       margin-top: 56px;
     }
 
-    .info-panel {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: 26px;
-      padding: 28px;
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 600;
     }
 
-    .two-col {
+    .section h2 {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+
+    .section > p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .info-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .info-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
     }
 
+    .info-col {
+      padding: 26px;
+    }
+
+    .info-col + .info-col {
+      border-left: 1px solid var(--border);
+    }
+
+    .info-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-item {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .contact-item span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .contact-item a {
+      color: var(--accent-2);
+    }
+
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
     .footer {
       margin-top: 56px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 20px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
     }
+
+    .footer-copy { font-size: 13px; color: var(--muted); }
 
     .footer-links {
       display: flex;
-      gap: 18px;
+      gap: 20px;
     }
 
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-      .two-col { grid-template-columns: 1fr; }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── Responsive ── */
+    @media (max-width: 540px) {
+      .info-row { grid-template-columns: 1fr; }
+      .info-col + .info-col {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+      .hero { padding: 40px 8px 28px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="page">
 
-    <div class="nav">
+    <nav class="nav">
       <div class="brand">DORMEUSAPPS LLC</div>
       <div class="nav-links">
         <a href="#about">About</a>
@@ -186,76 +354,150 @@
         <a href="https://dormeusapps.github.io/privacy.html">Privacy</a>
         <a href="https://dormeusapps.github.io/terms.html">Terms</a>
       </div>
-    </div>
+    </nav>
 
     <section class="hero" id="about">
-      <div class="eyebrow">Educational App Company</div>
+      <div class="eyebrow">Educational app company</div>
       <h1>DORMEUSAPPS LLC</h1>
       <div class="tagline">Math that finally makes sense.</div>
       <p class="subtext">
         MakesSense helps students actually understand math through step-by-step explanations, guided learning, and interactive visuals.
       </p>
-
       <div class="cta-row">
-        <a class="button primary" href="https://apps.apple.com/us/app/makessense/id6760540458">View on the App Store</a>
-        <a class="button" href="mailto:support@dormeusapps.com">Contact</a>
+        <a class="btn primary" href="https://apps.apple.com/us/app/makessense/id6760540458">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          View on App Store
+        </a>
+        <a class="btn" href="mailto:support@dormeusapps.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Contact support
+        </a>
       </div>
     </section>
 
-    <div class="grid">
-      <div class="card">
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.8">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
         <h3>Step-by-step teaching</h3>
-        <p>Clear explanations that show exactly what changed and why.</p>
+        <p>Clear explanations that show exactly what changed and why at every step.</p>
       </div>
-
-      <div class="card">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
         <h3>Interactive learning</h3>
         <p>Graphs, geometry, and visuals you can explore in real time.</p>
       </div>
-
-      <div class="card">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.8">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
         <h3>Built for understanding</h3>
-        <p>From Basic Math through Calculus.</p>
+        <p>From Basic Math through Calculus — every topic taught, not just solved.</p>
       </div>
     </div>
 
     <section class="section" id="app">
+      <div class="section-label">The app</div>
       <h2>MakesSense</h2>
-      <p class="subtext">
-        A math app built to teach, not just solve.
-      </p>
+      <p>A math app built to teach, not just solve.</p>
 
       <div class="info-panel">
-        <div class="two-col">
-
-          <ul>
-            <li>Step-by-step solutions</li>
-            <li>Guided learning</li>
-            <li>Interactive visuals</li>
-            <li>Graphing tools</li>
-            <li>Custom math keyboard</li>
-          </ul>
-
-          <div>
-            <strong>Company Information</strong>
-            <p>DORMEUSAPPS LLC</p>
-            <p><a href="mailto:support@dormeusapps.com">support@dormeusapps.com</a></p>
-            <p><a href="https://dormeusapps.github.io/privacy.html">Privacy Policy</a></p>
-            <p><a href="https://dormeusapps.github.io/terms.html">Terms of Service</a></p>
+        <div class="info-row">
+          <div class="info-col">
+            <h4>Features</h4>
+            <ul class="feature-list">
+              <li>
+                <span class="check">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--muted)" stroke-width="1.8">
+                    <polyline points="2,5 4,7 8,3"/>
+                  </svg>
+                </span>
+                Step-by-step solutions
+              </li>
+              <li>
+                <span class="check">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--muted)" stroke-width="1.8">
+                    <polyline points="2,5 4,7 8,3"/>
+                  </svg>
+                </span>
+                Guided learning
+              </li>
+              <li>
+                <span class="check">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--muted)" stroke-width="1.8">
+                    <polyline points="2,5 4,7 8,3"/>
+                  </svg>
+                </span>
+                Interactive visuals
+              </li>
+              <li>
+                <span class="check">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--muted)" stroke-width="1.8">
+                    <polyline points="2,5 4,7 8,3"/>
+                  </svg>
+                </span>
+                Graphing tools
+              </li>
+              <li>
+                <span class="check">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--muted)" stroke-width="1.8">
+                    <polyline points="2,5 4,7 8,3"/>
+                  </svg>
+                </span>
+                Custom math keyboard
+              </li>
+            </ul>
           </div>
-
+          <div class="info-col">
+            <h4>Company</h4>
+            <div class="contact-row">
+              <div class="contact-item">
+                <span>Company</span>
+                DORMEUSAPPS LLC
+              </div>
+              <div class="contact-item">
+                <span>Support</span>
+                <a href="mailto:support@dormeusapps.com">support@dormeusapps.com</a>
+              </div>
+              <div class="contact-item">
+                <span>Legal</span>
+                <a href="https://dormeusapps.github.io/privacy.html">Privacy Policy</a>
+                &nbsp;·&nbsp;
+                <a href="https://dormeusapps.github.io/terms.html">Terms of Service</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="footer">
-      <div>© DORMEUSAPPS LLC</div>
+    <footer class="footer">
+      <div class="footer-copy">© DORMEUSAPPS LLC</div>
       <div class="footer-links">
         <a href="https://dormeusapps.github.io/privacy.html">Privacy</a>
         <a href="https://dormeusapps.github.io/terms.html">Terms</a>
         <a href="mailto:support@dormeusapps.com">Contact</a>
       </div>
-    </div>
+    </footer>
 
   </div>
 </body>
