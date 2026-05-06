@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Red Diary | Body Intelligence, Not Just Tracking</title>
+  <meta name="description" content="Red Diary is a cycle tracking and body intelligence app by DORMEUSAPPS LLC. Privacy-first. No account. No cloud. Your data stays on your device." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0c0b10;
+      --surface: #14131a;
+      --surface-2: #1c1a24;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.14);
+      --text: #f2f0f4;
+      --muted: #9490a4;
+      --accent: #E88B9C;
+      --accent-soft: #F4A98A;
+      --accent-deep: #B8A9C9;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --max: 860px;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(232,139,156,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 0%, rgba(184,169,201,0.08) 0%, transparent 55%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 64px 16px 44px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 60px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tagline {
+      font-size: clamp(18px, 3.5vw, 23px);
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .subtext {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn:active { transform: scale(0.98); }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      color: #0c0b10;
+      border: none;
+      font-weight: 600;
+    }
+
+    /* ── Features ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 52px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      transition: border-color 0.2s;
+    }
+
+    .feature-card:hover { border-color: var(--border-strong); }
+
+    .feature-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-md);
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .feature-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+
+    .feature-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    /* ── Privacy Promise ── */
+    .promise {
+      margin-top: 56px;
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+    }
+
+    .promise h2 {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .promise p {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .promise-item {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 16px 12px;
+      background: var(--surface-2);
+      border-radius: var(--radius-lg);
+    }
+
+    .promise-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    /* ── App section ── */
+    .section {
+      margin-top: 56px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .section h2 {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+
+    .section > p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .info-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .info-col { padding: 26px; }
+
+    .info-col + .info-col { border-left: 1px solid var(--border); }
+
+    .info-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-row { display: flex; flex-direction: column; gap: 14px; }
+
+    .contact-item { font-size: 14px; line-height: 1.5; }
+
+    .contact-item span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .contact-item a { color: var(--accent); }
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 56px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy { font-size: 13px; color: var(--muted); }
+
+    .footer-links { display: flex; gap: 20px; }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 540px) {
+      .info-row { grid-template-columns: 1fr; }
+      .info-col + .info-col { border-left: none; border-top: 1px solid var(--border); }
+      .hero { padding: 44px 8px 28px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <nav class="nav">
+      <div class="brand">DORMEUSAPPS LLC</div>
+      <div class="nav-links">
+        <a href="https://dormeusapps.github.io/">MakesSense</a>
+        <a href="#about">Red Diary</a>
+        <a href="https://dormeusapps.github.io/reddiary-privacy.html">Privacy</a>
+        <a href="https://dormeusapps.github.io/reddiary-terms.html">Terms</a>
+      </div>
+    </nav>
+
+    <section class="hero" id="about">
+      <div class="eyebrow">Body intelligence, not just tracking</div>
+      <h1>Red Diary</h1>
+      <div class="tagline">Your cycle. Your data. Your device.</div>
+      <p class="subtext">
+        Red Diary is a cycle tracking and body intelligence app that tells you what to do today — not just what day you're on. No account. No cloud. No analytics. Everything stays on your iPhone.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="#">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Coming Soon
+        </a>
+        <a class="btn" href="mailto:support@dormeusapps.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Contact
+        </a>
+      </div>
+    </section>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3>Body intelligence</h3>
+        <p>Every screen answers "what should I do today" — not just "what day is it."</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h3>Privacy first</h3>
+        <p>No account. No cloud. No analytics. Your data never leaves your device.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <h3>Four modes</h3>
+        <p>Cycle tracking, pregnancy, trying to conceive, and avoiding pregnancy — each with its own intelligence.</p>
+      </div>
+    </div>
+
+    <div class="promise">
+      <h2>Your privacy is non-negotiable</h2>
+      <p>Red Diary was designed from day one with a simple rule: your reproductive health data belongs to you and no one else.</p>
+      <div class="promise-grid">
+        <div class="promise-item">
+          <strong>No account required</strong>
+          Open the app and start. No email, no sign-up.
+        </div>
+        <div class="promise-item">
+          <strong>No cloud sync</strong>
+          All data stored locally on your iPhone via encrypted storage.
+        </div>
+        <div class="promise-item">
+          <strong>No analytics</strong>
+          Zero tracking. No ad SDKs. No third-party data sharing.
+        </div>
+        <div class="promise-item">
+          <strong>HealthKit read-only</strong>
+          We read steps, sleep, and activity. We never write to or share your Health data.
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="app">
+      <div class="section-label">The app</div>
+      <h2>Red Diary</h2>
+      <p>A body intelligence system — not a tracker.</p>
+
+      <div class="info-panel">
+        <div class="info-row">
+          <div class="info-col">
+            <h4>Features</h4>
+            <ul class="feature-list">
+              <li>
+                <span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="1.8"><polyline points="2,5 4,7 8,3"/></svg></span>
+                Cycle phase engine
+              </li>
+              <li>
+                <span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="1.8"><polyline points="2,5 4,7 8,3"/></svg></span>
+                Pregnancy mode (40 weeks)
+              </li>
+              <li>
+                <span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="1.8"><polyline points="2,5 4,7 8,3"/></svg></span>
+                Apple Health integration
+              </li>
+              <li>
+                <span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="1.8"><polyline points="2,5 4,7 8,3"/></svg></span>
+                Phase-aware workouts
+              </li>
+              <li>
+                <span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="1.8"><polyline points="2,5 4,7 8,3"/></svg></span>
+                Symptom patterns &amp; insights
+              </li>
+              <li>
+                <span class="check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="1.8"><polyline points="2,5 4,7 8,3"/></svg></span>
+                Mood sharing (no fertility data exposed)
+              </li>
+            </ul>
+          </div>
+          <div class="info-col">
+            <h4>Company</h4>
+            <div class="contact-row">
+              <div class="contact-item">
+                <span>Company</span>
+                DORMEUSAPPS LLC
+              </div>
+              <div class="contact-item">
+                <span>Support</span>
+                <a href="mailto:support@dormeusapps.com">support@dormeusapps.com</a>
+              </div>
+              <div class="contact-item">
+                <span>Legal</span>
+                <a href="https://dormeusapps.github.io/reddiary-privacy.html">Privacy Policy</a>
+                &nbsp;·&nbsp;
+                <a href="https://dormeusapps.github.io/reddiary-terms.html">Terms of Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-copy">&copy; DORMEUSAPPS LLC</div>
+      <div class="footer-links">
+        <a href="https://dormeusapps.github.io/reddiary-privacy.html">Privacy</a>
+        <a href="https://dormeusapps.github.io/reddiary-terms.html">Terms</a>
+        <a href="https://dormeusapps.github.io/">MakesSense</a>
+        <a href="mailto:support@dormeusapps.com">Contact</a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
