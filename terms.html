@@ -3,106 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service | MakesSense</title>
+  <title>Terms of Service | Red Diary</title>
+  <meta name="description" content="Red Diary Terms of Service — DORMEUSAPPS LLC." />
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Arial, sans-serif;
-      background: #0b0b0f;
-      color: #f5f5f7;
-      line-height: 1.7;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0c0b10;
+      --surface: #14131a;
+      --border: rgba(255,255,255,0.08);
+      --text: #f2f0f4;
+      --muted: #9490a4;
+      --accent: #E88B9C;
+      --max: 720px;
     }
 
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 48px 20px;
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
     }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .nav a { color: var(--muted); font-size: 14px; transition: color 0.15s; }
+    .nav a:hover { color: var(--text); text-decoration: none; }
 
     h1 {
-      font-size: 42px;
-      margin-bottom: 8px;
+      font-size: clamp(24px, 5vw, 34px);
+      font-weight: 700;
+      margin: 40px 0 8px;
+      letter-spacing: -0.01em;
     }
+
+    .effective { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
 
     h2 {
-      margin-top: 32px;
-      font-size: 24px;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 32px 0 10px;
     }
 
-    p, li {
-      color: #d0d0d8;
-      font-size: 17px;
-    }
+    p { font-size: 15px; color: var(--muted); margin-bottom: 14px; }
 
-    a {
-      color: #8b7cff;
-      text-decoration: none;
-    }
-
-    .topnav {
-      margin-bottom: 30px;
-    }
-
-    .topnav a {
-      margin-right: 20px;
-      color: #b7b7c2;
-    }
-
-    .muted {
-      color: #b7b7c2;
+    .contact {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--muted);
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="topnav">
-      <a href="https://dormeusapps.github.io/">Home</a>
-      <a href="https://dormeusapps.github.io/makesense-legal/privacy.html">Privacy</a>
-    </div>
+  <div class="page">
 
-    <h1>MakesSense Terms of Service</h1>
-    <p class="muted">Effective Date: March 22, 2026</p>
+    <nav class="nav">
+      <a href="https://dormeusapps.com/reddiary.html">Red Diary</a>
+      <a href="https://dormeusapps.com/reddiary-privacy.html">Privacy</a>
+      <a href="https://dormeusapps.com/">MakesSense</a>
+    </nav>
 
-    <p>
-      These Terms of Service govern your use of MakesSense, an educational math application operated by DORMEUSAPPS LLC.
-    </p>
+    <h1>Red Diary Terms of Service</h1>
+    <p class="effective">Effective Date: May 6, 2026</p>
+
+    <p>These Terms of Service govern your use of Red Diary, a cycle tracking and body intelligence application operated by DORMEUSAPPS LLC.</p>
 
     <h2>Use of the App</h2>
-    <p>
-      MakesSense is provided for educational purposes. You may use the app only in compliance with applicable laws and these terms.
-    </p>
+    <p>Red Diary is provided for personal health tracking and informational purposes. You may use the app only in compliance with applicable laws and these terms. Red Diary is not a medical device and does not provide medical advice.</p>
+
+    <h2>Not Medical Advice</h2>
+    <p>Red Diary provides health information, cycle predictions, pregnancy content, and workout suggestions for informational and educational purposes only. This content is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider with questions about your health, pregnancy, or reproductive decisions. Do not disregard professional medical advice based on information from this app.</p>
+
+    <h2>Accuracy of Predictions</h2>
+    <p>Cycle predictions, fertile window estimates, and ovulation timing are based on the data you enter and general cycle patterns. These predictions are estimates and should not be relied upon as a sole method of contraception or conception planning. Individual cycles vary and predictions may not be accurate for all users.</p>
 
     <h2>Subscriptions</h2>
-    <p>
-      Certain features may require a paid subscription. Billing is handled by Apple through the App Store. Subscription terms, renewal, and cancellation are managed through your Apple ID account.
-    </p>
+    <p>Certain features may require a paid subscription. Billing is handled by Apple through the App Store. Subscription terms, renewal, and cancellation are managed through your Apple ID account settings.</p>
+
+    <h2>Your Data</h2>
+    <p>All data you enter into Red Diary is stored locally on your device. We do not have access to your data and cannot recover it if you delete the app or lose your device. You are responsible for any backups you wish to maintain through your device's own backup mechanisms (e.g., encrypted iPhone backups).</p>
 
     <h2>Intellectual Property</h2>
-    <p>
-      The app, its design, content, branding, and functionality are the property of DORMEUSAPPS LLC and may not be copied, redistributed, or reverse engineered without permission.
-    </p>
-
-    <h2>No Guarantee of Results</h2>
-    <p>
-      MakesSense is designed to help users learn and understand math, but we do not guarantee academic outcomes, grades, or specific results.
-    </p>
+    <p>The app, its design, content, workout plans, pregnancy content, branding, and functionality are the property of DORMEUSAPPS LLC and may not be copied, redistributed, or reverse engineered without permission.</p>
 
     <h2>Limitation of Liability</h2>
-    <p>
-      MakesSense is provided “as is” without warranties of any kind. To the fullest extent permitted by law, DORMEUSAPPS LLC shall not be liable for any indirect, incidental, or consequential damages arising from use of the app.
-    </p>
+    <p>Red Diary is provided "as is" without warranties of any kind, express or implied. To the fullest extent permitted by law, DORMEUSAPPS LLC shall not be liable for any indirect, incidental, special, or consequential damages arising from use of the app, including but not limited to decisions made based on cycle predictions, health information, or pregnancy content provided by the app.</p>
+
+    <h2>Termination</h2>
+    <p>You may stop using Red Diary at any time by deleting the app. Deleting the app permanently removes all locally stored data. We reserve the right to modify or discontinue the app at any time.</p>
 
     <h2>Changes to These Terms</h2>
-    <p>
-      We may update these Terms of Service from time to time. Continued use of the app after changes are posted constitutes acceptance of the revised terms.
-    </p>
+    <p>We may update these Terms of Service from time to time. Continued use of the app after changes are posted constitutes acceptance of the revised terms.</p>
 
-    <h2>Contact</h2>
-    <p>
-      DORMEUSAPPS LLC<br>
-      support@dormeusapps.com
-    </p>
+    <div class="contact">
+      <strong>DORMEUSAPPS LLC</strong><br />
+      <a href="mailto:support@dormeusapps.com">support@dormeusapps.com</a>
+    </div>
+
   </div>
 </body>
 </html>
