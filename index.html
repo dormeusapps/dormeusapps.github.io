@@ -69,6 +69,7 @@
       display: inline-flex; align-items: center; justify-content: center;
       color: #fff; font-size: 14px; font-weight: 700;
     }
+    .logo img.glyph { object-fit: cover; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a {
       color: var(--ink); font-size: 13px; font-weight: 400;
@@ -162,6 +163,9 @@
     .step.check .num { background: #e7f7ed; color: #1a8f3c; }
     .step.check .expr { color: var(--ink); }
 
+    .graph-svg { width: 100%; height: auto; display: block; }
+    .graph-svg .gtext { font-family: "SF Mono", ui-monospace, "Menlo", monospace; }
+
     @media (prefers-reduced-motion: no-preference) {
       .solver.go .step { animation: stepIn 0.5s var(--ease) forwards; }
       .solver.go .step:nth-child(1) { animation-delay: 0.15s; }
@@ -217,6 +221,7 @@
       background: #f0f0f2; border: 1px solid var(--hairline);
       display: flex; align-items: center; justify-content: center;
     }
+    .also img.rd-glyph { object-fit: cover; }
     .also .rd-copy { flex: 1; }
     .also .rd-copy .k { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
     .also .rd-copy h3 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 4px 0 6px; color: var(--ink); }
@@ -259,7 +264,7 @@
   <!-- ─────────── Nav ─────────── -->
   <nav class="nav">
     <div class="nav-inner">
-      <a class="logo" href="#top"><span class="glyph">M</span>MakesSense</a>
+      <a class="logo" href="#top"><img class="glyph" src="MakesSense.png" alt="MakesSense icon">MakesSense</a>
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#topics" class="hide-mobile">Topics</a>
@@ -378,6 +383,52 @@
     </div>
   </section>
 
+  <!-- ─────────── Graphing calculator ─────────── -->
+  <section id="graphing">
+    <div class="wrap center">
+      <p class="kicker reveal">Graphing calculator</p>
+      <h2 class="reveal">See the math, not just the answer.</h2>
+      <p class="section-lede reveal">Plot any function, trace points, and watch how the numbers behave.</p>
+
+      <!-- To use a real screenshot instead, replace this .solver block with an <img>. -->
+      <div class="solver reveal" aria-label="Example: a function plotted on a graph">
+        <div class="solver-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="title">Graphing</span>
+        </div>
+        <div class="solver-body" style="padding:20px 22px 22px;">
+          <svg class="graph-svg" viewBox="0 0 370 270" role="img" aria-label="Graph of y equals x squared with the point (2, 4) marked">
+            <!-- grid -->
+            <g stroke="#ececef" stroke-width="1">
+              <line x1="65" y1="20" x2="65" y2="240"/><line x1="105" y1="20" x2="105" y2="240"/>
+              <line x1="145" y1="20" x2="145" y2="240"/><line x1="225" y1="20" x2="225" y2="240"/>
+              <line x1="265" y1="20" x2="265" y2="240"/><line x1="305" y1="20" x2="305" y2="240"/>
+              <line x1="41" y1="52" x2="329" y2="52"/><line x1="41" y1="78" x2="329" y2="78"/>
+              <line x1="41" y1="104" x2="329" y2="104"/><line x1="41" y1="156" x2="329" y2="156"/>
+              <line x1="41" y1="182" x2="329" y2="182"/><line x1="41" y1="208" x2="329" y2="208"/>
+            </g>
+            <!-- axes -->
+            <g stroke="#c7c7cc" stroke-width="1.5">
+              <line x1="41" y1="130" x2="334" y2="130"/><line x1="185" y1="16" x2="185" y2="240"/>
+            </g>
+            <polygon points="334,130 326,126 326,134" fill="#c7c7cc"/>
+            <polygon points="185,16 181,24 189,24" fill="#c7c7cc"/>
+            <!-- curve: y = x^2 -->
+            <polyline fill="none" stroke="#0071e3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+              points="41,26 65,58 85,80 105,98 125,112 145,122 165,128 185,130 205,128 225,122 245,112 265,98 285,80 305,58 329,26"/>
+            <!-- traced point (2, 4) -->
+            <line x1="265" y1="98" x2="265" y2="130" stroke="#0071e3" stroke-width="1" stroke-dasharray="3 3" opacity="0.55"/>
+            <line x1="185" y1="98" x2="265" y2="98" stroke="#0071e3" stroke-width="1" stroke-dasharray="3 3" opacity="0.55"/>
+            <circle cx="265" cy="98" r="5.5" fill="#fff" stroke="#0071e3" stroke-width="3"/>
+            <text class="gtext" x="273" y="92" font-size="13" font-weight="600" fill="#1d1d1f">(2, 4)</text>
+            <!-- equation label -->
+            <text class="gtext" x="50" y="34" font-size="15" font-weight="600" fill="#0071e3">y = x&#178;</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─────────── Topics ─────────── -->
   <section id="topics">
     <div class="wrap center">
@@ -403,17 +454,11 @@
   <section style="padding-top:0;">
     <div class="wrap">
       <a class="also reveal" href="reddiary.html">
-        <!-- Replace this neutral placeholder with your real Red Diary app icon:
-             <img class="rd-glyph" src="reddiary-icon.png" alt="Red Diary app icon" style="object-fit:cover;"> -->
-        <div class="rd-glyph">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-          </svg>
-        </div>
+        <img class="rd-glyph" src="RedDiary.png" alt="Red Diary app icon">
         <div class="rd-copy">
           <span class="k">Also from Dormeus Apps</span>
           <h3>Red Diary</h3>
-          <p>A private, beautifully simple place to write down your days.</p>
+          <p>Private, on-device cycle tracking and body intelligence — your data never leaves your iPhone.</p>
         </div>
         <span class="btn text" aria-hidden="true">Learn more <span class="chev">›</span></span>
       </a>
