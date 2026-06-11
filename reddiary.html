@@ -58,6 +58,7 @@
     .logo { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); display: flex; align-items: center; gap: 9px; }
     .logo:hover { text-decoration: none; }
     .logo .glyph { width: 26px; height: 26px; border-radius: 7px; background: linear-gradient(150deg, #ff7a9c, #c0395e); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 700; }
+    .logo img.glyph { object-fit: cover; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a { color: var(--ink); font-size: 13px; font-weight: 400; opacity: 0.82; transition: opacity 0.2s; }
     .nav-links a:hover { opacity: 1; text-decoration: none; }
@@ -140,6 +141,7 @@
     .also { background: var(--surface); border-radius: var(--r-xl); box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.05); padding: 44px; display: flex; align-items: center; gap: 32px; }
     .also:hover { text-decoration: none; }
     .also .ms-glyph { width: 76px; height: 76px; border-radius: 18px; flex-shrink: 0; background: linear-gradient(150deg, #2997ff, #0040dd); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 34px; font-weight: 700; }
+    .also img.ms-glyph { object-fit: cover; }
     .also .ms-copy { flex: 1; }
     .also .ms-copy .k { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
     .also .ms-copy h3 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 4px 0 6px; color: var(--ink); }
@@ -179,7 +181,7 @@
 
   <nav class="nav">
     <div class="nav-inner">
-      <a class="logo" href="#top"><span class="glyph">R</span>Red Diary</a>
+      <a class="logo" href="#top"><img class="glyph" src="RedDiary.png" alt="Red Diary icon">Red Diary</a>
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#privacy" class="hide-mobile">Privacy</a>
@@ -317,7 +319,7 @@
   <section style="padding-top:0;">
     <div class="wrap">
       <a class="also reveal" href="index.html">
-        <div class="ms-glyph">M</div>
+        <img class="ms-glyph" src="MakesSense.png" alt="MakesSense icon">
         <div class="ms-copy">
           <span class="k">Also from Dormeus Apps</span>
           <h3>MakesSense</h3>
