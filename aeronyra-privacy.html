@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | AeroNyra</title>
-  <meta name="description" content="AeroNyra Privacy Policy — DORMEUSAPPS LLC. We collect nothing. No servers, no accounts, no analytics." />
+  <meta name="description" content="AeroNyra Privacy Policy — DORMEUSAPPS LLC. We collect nothing: no servers of our own, no accounts, no analytics. What public relays see when you are apart." />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -95,38 +95,51 @@
     </nav>
 
     <h1>AeroNyra Privacy Policy</h1>
-    <p class="effective">Effective Date: July 11, 2026</p>
+    <p class="effective">Effective Date: September 19, 2026</p>
 
     <p class="intro">
-      AeroNyra is a private messenger built by DORMEUSAPPS LLC. Most privacy policies describe what a company does with the data it collects. This one is short for a simple reason: we collect nothing. AeroNyra has no servers, no accounts, and no way for your information to reach us — because there is no "us" in the loop.
+      AeroNyra is a private messenger built by DORMEUSAPPS LLC. This policy is short because we collect nothing: AeroNyra has no servers of our own, no accounts, and no analytics. It is also specific about the one thing in the path that is not ours — the public relays that carry your messages when you and a contact are apart — because a privacy policy that left them out would be wrong.
     </p>
 
     <h2>We Collect Nothing</h2>
-    <p>AeroNyra has no servers, no accounts, and no analytics. We do not collect, store, or transmit your personal information to us or to anyone else. There is no server to receive it. This is not a promise to handle your data carefully — it is an architecture with no place for your data to go.</p>
+    <p>AeroNyra has no servers of its own, no accounts, and no analytics. We do not collect, store, or receive your personal information, and there is no server of ours to receive it. This is not a promise to handle your data carefully — it is an architecture with no place of ours for your data to go.</p>
 
     <h2>Your Identity Stays on Your Device</h2>
-    <p>Your name, photo, and cryptographic identity live only on your phone. They are never uploaded. Your identity is yours alone — in AeroNyra, you are your key.</p>
+    <p>Your name, your photo, and your private keys live only on your phone and are never uploaded anywhere. The one thing you hand out is your public key, and you hand it out yourself: it is inside the code a contact scans in person, and inside a one-time invite you choose to send. Whoever holds an invite can use it to pair with you, so send it somewhere you trust.</p>
+
+    <h2>Nearby: Bluetooth, No Server at All</h2>
+    <p>When you and a contact are near each other, messages travel directly between your phones over Bluetooth. No server of any kind is involved, no internet connection is needed, and nothing leaves the two devices.</p>
+
+    <h2>Far Away: Public Relays</h2>
+    <p>When you are apart, AeroNyra sends your messages through public relays on the internet. These are third-party services that DORMEUSAPPS LLC does not operate, control, or have any relationship with. The app connects to them without any account and without any authentication. A relay receives:</p>
+    <ul>
+      <li><strong>Encrypted messages it cannot read.</strong> Every message is sealed end to end on your phone before it leaves.</li>
+      <li><strong>Timing and size.</strong> When each message arrives and how large it is.</li>
+      <li><strong>Your IP address</strong>, as any internet connection reveals. If you use a VPN, the relay sees the VPN's address instead; nothing else changes.</li>
+      <li><strong>That one connection is exchanging messages with another.</strong> A relay can see that messages pass between two connected devices; it does not see who those devices belong to.</li>
+    </ul>
+    <p>A relay never sees your name, your photo, your private keys, or the content of any message. It holds encrypted messages for a short time so they can be delivered when your phone reconnects, and it cannot open them. Relays keep whatever records their own operators keep, under their own policies, which we neither control nor can read.</p>
 
     <h2>Your Messages Are End-to-End Encrypted</h2>
-    <p>Messages travel directly between phones over Bluetooth, or through relays when you are apart. Relays pass along sealed data they cannot read. No one in the middle — including us — can see who you talk to, what you say, or when.</p>
+    <p>Every message is encrypted on your phone and decrypted only on your contact's. No one in between — not a relay, not us — can read what you say.</p>
 
-    <h2>No Tracking, No Advertising, No Third Parties</h2>
-    <p>AeroNyra contains no advertising SDKs, no trackers, and no third-party analytics tools. It shares nothing with third parties, because it has nothing to share and no one to share it with.</p>
+    <h2>No Tracking, No Advertising, No Analytics</h2>
+    <p>AeroNyra contains no advertising SDKs, no trackers, and no third-party analytics tools. The only third parties that ever receive anything from the app are the public relays described above, and they receive only what is listed there.</p>
 
     <h2>Permissions We Request, and Why</h2>
-    <p>AeroNyra asks for a small number of device permissions, used only on your device for the features they enable:</p>
+    <p>AeroNyra asks for a small number of device permissions, used only for the features they enable:</p>
     <ul>
-      <li><strong>Bluetooth</strong> — to discover nearby devices and relay messages directly between phones.</li>
-      <li><strong>Camera</strong> — to scan a contact's pairing code, and for video calls.</li>
-      <li><strong>Microphone</strong> — for voice notes and calls.</li>
+      <li><strong>Bluetooth</strong> — to discover nearby devices and carry messages directly between phones, with no server involved.</li>
+      <li><strong>Camera</strong> — to scan a contact's pairing code, for video calls, and to capture photos and videos for stories.</li>
+      <li><strong>Microphone</strong> — for voice notes, calls, and the audio of videos you capture for stories.</li>
     </ul>
-    <p>Nothing captured through these permissions is sent to us. There is nowhere for it to be sent.</p>
+    <p>Nothing captured through these permissions is sent to us. Photos, videos, and voice notes go only, sealed, to the contact you chose — directly over Bluetooth when you are near, through relays when you are apart.</p>
 
     <h2>No Recovery, by Design</h2>
-    <p>Because nothing is stored off your device, if you delete the app or lose your device, your identity and data are gone permanently. There is no cloud backup and no account to recover. This is a deliberate privacy property, not a limitation — data that cannot be recovered by you also cannot be recovered by anyone else.</p>
+    <p>Nothing readable is stored off your device. If you delete the app or lose your device, your identity and your history are gone permanently; there is no cloud backup and no account to recover. Relays hold only sealed messages, briefly, for delivery — they cannot give back anything you could read.</p>
 
     <h2>Nothing to Hand Over</h2>
-    <p>Because we hold no data, there is nothing for us to sell, share, or disclose to anyone — including in response to legal requests. We cannot produce what we never had.</p>
+    <p>Because we hold no data, there is nothing for us to sell, share, or disclose to anyone, including in response to legal requests. We cannot produce what we never had. Relay operators may hold encrypted messages and connection records for a time, subject to their own policies; those records do not contain your name, your keys, or the content of your messages, and we have no access to them.</p>
 
     <h2>Children's Privacy</h2>
     <p>AeroNyra is not intended for children under 13. Because we collect no information from anyone, we do not knowingly collect personal information from children.</p>
