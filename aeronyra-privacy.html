@@ -95,7 +95,7 @@
     </nav>
 
     <h1>AeroNyra Privacy Policy</h1>
-    <p class="effective">Effective Date: September 19, 2026</p>
+    <p class="effective">Effective Date: September 26, 2026</p>
 
     <p class="intro">
       AeroNyra is a private messenger built by DORMEUSAPPS LLC. This policy is short because we collect nothing: AeroNyra has no servers of our own, no accounts, and no analytics. It is also specific about the one thing in the path that is not ours — the public relays that carry your messages when you and a contact are apart — because a privacy policy that left them out would be wrong.
@@ -107,8 +107,9 @@
     <h2>Your Identity Stays on Your Device</h2>
     <p>Your name, your photo, and your private keys live only on your phone and are never uploaded anywhere. The one thing you hand out is your public key, and you hand it out yourself: it is inside the code a contact scans in person, and inside a one-time invite you choose to send. Whoever holds an invite can use it to pair with you, so send it somewhere you trust.</p>
 
-    <h2>Nearby: Bluetooth, No Server at All</h2>
-    <p>When you and a contact are near each other, messages travel directly between your phones over Bluetooth. No server of any kind is involved, no internet connection is needed, and nothing leaves the two devices.</p>
+    <h2>Nearby: Bluetooth</h2>
+    <p>When you and a contact are near each other with Bluetooth on, messages usually travel over Bluetooth between your phones, and no internet connection is needed. If Bluetooth is unavailable, or the connection drops while a message is on its way, the app may send it through the public relays instead, sealed so that they cannot read it.</p>
+    <p>When you pair nearby with an invite, the pairing message goes over Bluetooth when a Bluetooth connection is available, and stays off the relays when the two phones complete their Bluetooth handshake. If the handshake does not complete within a few seconds, or there is no Bluetooth connection, that message may be sent through the public relays instead, sealed so that they cannot read it.</p>
 
     <h2>Far Away: Public Relays</h2>
     <p>When you are apart, AeroNyra sends your messages through public relays on the internet. These are third-party services that DORMEUSAPPS LLC does not operate, control, or have any relationship with. The app connects to them without any account and without any authentication. A relay receives:</p>
@@ -129,11 +130,11 @@
     <h2>Permissions We Request, and Why</h2>
     <p>AeroNyra asks for a small number of device permissions, used only for the features they enable:</p>
     <ul>
-      <li><strong>Bluetooth</strong> — to discover nearby devices and carry messages directly between phones, with no server involved.</li>
+      <li><strong>Bluetooth</strong> — to discover nearby devices and carry messages between phones when they are near each other.</li>
       <li><strong>Camera</strong> — to scan a contact's pairing code, for video calls, and to capture photos and videos for stories.</li>
       <li><strong>Microphone</strong> — for voice notes, calls, and the audio of videos you capture for stories.</li>
     </ul>
-    <p>Nothing captured through these permissions is sent to us. Photos, videos, and voice notes go only, sealed, to the contact you chose — directly over Bluetooth when you are near, through relays when you are apart.</p>
+    <p>Nothing captured through these permissions is sent to us. Photos, videos, and voice notes are sealed so that only the contact you chose can open them — sent over Bluetooth when you are near, and through the relays when you are apart or Bluetooth is unavailable.</p>
 
     <h2>No Recovery, by Design</h2>
     <p>Nothing readable is stored off your device. If you delete the app or lose your device, your identity and your history are gone permanently; there is no cloud backup and no account to recover. Relays hold only sealed messages, briefly, for delivery — they cannot give back anything you could read.</p>
