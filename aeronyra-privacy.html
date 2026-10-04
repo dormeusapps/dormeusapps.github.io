@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | AeroNyra</title>
-  <meta name="description" content="AeroNyra Privacy Policy — DORMEUSAPPS LLC. We collect nothing: no servers of our own, no accounts, no analytics. What public relays see when you are apart." />
+  <meta name="description" content="AeroNyra Privacy Policy — DORMEUSAPPS LLC. We collect nothing automatically: no servers of our own, no accounts, no analytics. What public relays see when you are apart." />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -95,22 +95,23 @@
     </nav>
 
     <h1>AeroNyra Privacy Policy</h1>
-    <p class="effective">Effective Date: September 27, 2026</p>
+    <p class="effective">Effective Date: October 4, 2026</p>
 
     <p class="intro">
-      AeroNyra is a private messenger built by DORMEUSAPPS LLC. This policy is short because we collect nothing: AeroNyra has no servers of our own, no accounts, and no analytics. It is also specific about the one thing in the path that is not ours — the public relays that carry your messages when you and a contact are apart — because a privacy policy that left them out would be wrong.
+      AeroNyra is a private messenger built by DORMEUSAPPS LLC. This policy is short because we collect nothing automatically: AeroNyra has no servers of our own, no accounts, and no analytics. It is also specific about the one thing in the path that is not ours — the public relays that carry your messages when you and a contact are apart — because a privacy policy that left them out would be wrong.
     </p>
 
-    <h2>We Collect Nothing</h2>
-    <p>AeroNyra has no servers of its own, no accounts, and no analytics. We do not collect, store, or receive your personal information, and there is no server of ours to receive it. This is not a promise to handle your data carefully — it is an architecture with no place of ours for your data to go.</p>
+    <h2>We Collect Nothing Automatically</h2>
+    <p>AeroNyra has no servers of its own, no accounts, and no analytics. The app does not collect your personal information or send it to us, and there is no server of ours to receive it. The one exception is an email you choose to send us, such as a report (see Reports You Send). This is not a promise to handle your data carefully — it is an architecture with no place of ours for your data to go.</p>
 
     <h2>Your Identity Stays on Your Device</h2>
-    <p>Your name, your photo, and your private keys live only on your phone and are never uploaded anywhere. The one thing you hand out is your public key, and you hand it out yourself: it is inside the code a contact scans in person, and inside a one-time invite you choose to send. Whoever holds an invite can use it to pair with you, so send it somewhere you trust. Phones that pass your first messages along nearby can also see it (see Nearby: Bluetooth).</p>
+    <p>Your private keys stay on your phone. They are never sent to us or to the relays, never synced to iCloud Keychain, and cannot be moved to another phone. Your display name and photo are never sent to us, to the relays, or to your contacts. They, the words you add to the content filter, and your other app settings are stored on your phone in a place iPhone backups can include. The one thing you hand out is your public key, and you hand it out yourself: it is inside the code a contact scans in person, and inside a one-time invite you choose to send. Whoever holds an invite can use it to pair with you, so send it somewhere you trust.</p>
 
     <h2>Nearby: Bluetooth</h2>
     <p>When you and a contact are near each other with Bluetooth on, messages usually travel over Bluetooth between your phones, and no internet connection is needed. If Bluetooth is unavailable, or the connection drops while a message is on its way, the app may send it through the public relays instead, sealed so that they cannot read it.</p>
-    <p>When you pair nearby with an invite, the pairing message goes over Bluetooth when a Bluetooth connection is available, and stays off the relays when the two phones complete their Bluetooth handshake. If the handshake does not complete within a few seconds, or there is no Bluetooth connection, that message may be sent through the public relays instead, sealed so that they cannot read it.</p>
-    <p>When you're near other people using AeroNyra, your messages may hop through their phones to reach your contact, and theirs may hop through yours. Phones in between pass messages along without being able to read them, but they can see that a message went by, roughly how big it was, and when. The first messages to a new contact also carry your public identity key, which a phone in between could see.</p>
+    <p>When you pair with an invite, the pairing message goes over Bluetooth when a Bluetooth connection is available, and stays off the relays when the other phone confirms it over Bluetooth. If that confirmation does not arrive within a few seconds, or there is no Bluetooth connection, the pairing message may be sent through the public relays instead, sealed so that they cannot read it.</p>
+    <p>When you're near other people using AeroNyra, your messages may hop through their phones to reach your contact, and theirs may hop through yours. Phones in between pass messages along without being able to read them or see your key, but they can see that a message went by, roughly how big it was, when, and how many phones it has passed through. Versions of the app before build 14 also sent your public key inside the first messages to a new contact, where phones passing them along could see it; updating the app stops this.</p>
+    <p>While AeroNyra is running, its Bluetooth signal carries the name &quot;AeroNyra&quot; and a fixed AeroNyra identifier, so people nearby with a Bluetooth scanner may be able to tell the app is in use. The signal does not include your name or your keys.</p>
 
     <h2>Far Away: Public Relays</h2>
     <p>When you are apart, AeroNyra sends your messages through public relays on the internet. These are third-party services that DORMEUSAPPS LLC does not operate, control, or have any relationship with. The app connects to them without any account and without any authentication. A relay receives:</p>
@@ -120,31 +121,42 @@
       <li><strong>Your IP address</strong>, as any internet connection reveals. If you use a VPN, the relay sees the VPN's address instead; nothing else changes.</li>
       <li><strong>That one connection is exchanging messages with another.</strong> A relay can see that messages pass between two connected devices; it does not see who those devices belong to.</li>
     </ul>
-    <p>A relay never sees your name, your photo, your private keys, or the content of any message. It holds encrypted messages for a short time so they can be delivered when your phone reconnects, and it cannot open them. Relays keep whatever records their own operators keep, under their own policies, which we neither control nor can read.</p>
+    <p>A relay never sees your name, your photo, your private keys, or the content of any message. It holds encrypted messages so they can be delivered when your phone reconnects, and it cannot open them. How long a relay keeps them, and what other records it keeps, is up to its operator, under policies we neither control nor can read.</p>
+
+    <h2>Calls and Walkie</h2>
+    <p>Voice calls, video calls, and the walkie over the internet connect your phone directly to your contact's, with no relay or server of ours in between. The relays carry only the sealed messages that set up the connection. Like any direct connection, this means each phone learns the other's IP address.</p>
+    <p>While &quot;Allow walkie from contacts&quot; is on in Settings, a verified contact can open a walkie with you over the internet without you doing anything, so their phone can learn your IP address that way. Turn it off to decline these requests.</p>
 
     <h2>Your Messages Are End-to-End Encrypted</h2>
-    <p>Every message is encrypted on your phone and decrypted only on your contact's. No one in between — not a relay, not us — can read what you say.</p>
+    <p>Every message is encrypted on your phone and decrypted only on your contact's. No one in between — not a relay, not a nearby phone, not us — can read what you say, unless you choose to send it to us in a report.</p>
 
     <h2>No Tracking, No Advertising, No Analytics</h2>
-    <p>AeroNyra contains no advertising SDKs, no trackers, and no third-party analytics tools. The only third parties that ever receive anything from the app are the public relays described above, and they receive only what is listed there.</p>
+    <p>AeroNyra contains no advertising SDKs, no trackers, and no third-party analytics tools. The only others that receive anything from the app are the public relays and nearby phones described above, and they receive only what is listed there. An email you send us goes through your own email provider (see Reports You Send).</p>
+    <p>If you turn on Share with App Developers in your iPhone's settings, Apple may send us crash reports. They don't include your messages.</p>
+
+    <h2>Reports You Send</h2>
+    <p>If you report someone, the app prepares an email to support@dormeusapps.com that you review and send from your own mail app. It may contain the reason you chose, your name for the contact, a code derived from their public key, the app version and time, anything you choose to tell us about the person (such as their name, phone number, email, social media or how you met), what happened in your own words, and, if you keep it, the reported message's text. Photos, videos and voice notes are never included. Nothing is sent unless you send it.</p>
+    <p>Report a problem, in Settings, starts an email with only the app version and the time; you write the rest.</p>
+    <p>Any email you send us reaches us through your email provider and ours, with your email address.</p>
+    <p>We keep reports for up to 1 year, or longer if needed for a legal matter. We may share a report with law enforcement when required by law or when someone may be in danger.</p>
 
     <h2>Permissions We Request, and Why</h2>
     <p>AeroNyra asks for a small number of device permissions, used only for the features they enable:</p>
     <ul>
       <li><strong>Bluetooth</strong> — to discover nearby devices and carry messages between phones when they are near each other.</li>
       <li><strong>Camera</strong> — to scan a contact's pairing code, for video calls, and to capture photos and videos for stories.</li>
-      <li><strong>Microphone</strong> — for voice notes, calls, and the audio of videos you capture for stories.</li>
+      <li><strong>Microphone</strong> — for voice notes, calls, the walkie, and the audio of videos you capture for stories.</li>
     </ul>
-    <p>Nothing captured through these permissions is sent to us. Photos, videos, and voice notes are sealed so that only the contact you chose can open them — sent over Bluetooth when you are near, and through the relays when you are apart or Bluetooth is unavailable.</p>
+    <p>Nothing captured through these permissions is sent to us. Photos, videos, and voice notes are sealed so that only the contacts you send them to can open them — sent over Bluetooth when you are near, and through the relays when you are apart or Bluetooth is unavailable.</p>
 
     <h2>No Recovery, by Design</h2>
-    <p>Nothing readable is stored off your device, and there is no cloud backup and no account to recover. Deleting the app removes your messages and contacts from your phone, but iOS keeps your identity key in the phone's Keychain, so reinstalling AeroNyra on the same phone brings back the same identity. To destroy your identity, use Erase everything in the app's Settings. If you lose your device or reset it, your identity and your history are gone permanently. Relays hold only sealed messages, briefly, for delivery — they cannot give back anything you could read.</p>
+    <p>AeroNyra has no account and no cloud backup of its own. Your messages, photos, videos, voice notes and contacts are kept out of iCloud and computer backups, so a backup cannot bring them back. Backups made before you updated and opened the app may still contain older messages and contacts. Deleting the app removes your messages, contacts and settings from your phone, but iOS keeps your keys in the phone's Keychain, so reinstalling AeroNyra on the same phone brings back the same identity, with no messages or contacts. To destroy your identity, use Erase this identity in the app's Settings. If you lose your phone or move to a new one, your identity and your history do not come with you. Relays hold only sealed messages, which they cannot open.</p>
 
     <h2>Nothing to Hand Over</h2>
-    <p>Because we hold no data, there is nothing for us to sell, share, or disclose to anyone, including in response to legal requests. We cannot produce what we never had. Relay operators may hold encrypted messages and connection records for a time, subject to their own policies; those records do not contain your name, your keys, or the content of your messages, and we have no access to them.</p>
+    <p>Apart from emails you choose to send us, we hold no data, so there is nothing for us to sell, share, or disclose to anyone, including in response to legal requests. We cannot produce what we never had. Reports are kept and may be shared as described in Reports You Send. Relay operators may hold encrypted messages and connection records for a time, subject to their own policies; those records do not contain your name, your keys, or the content of your messages, and we have no access to them.</p>
 
     <h2>Children's Privacy</h2>
-    <p>AeroNyra is not intended for children under 13. Because we collect no information from anyone, we do not knowingly collect personal information from children.</p>
+    <p>AeroNyra is for people 18 and older and is not intended for anyone under 18. Because we collect no information automatically, we do not knowingly collect personal information from children.</p>
 
     <h2>Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. Updates will be posted on this page with a revised effective date. Continued use of the app after changes constitutes acceptance.</p>
