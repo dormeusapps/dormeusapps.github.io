@@ -67,6 +67,8 @@
     /* Buttons */
     .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 400; line-height: 1; padding: 12px 22px; border-radius: 980px; cursor: pointer; transition: background 0.2s, transform 0.12s var(--ease), opacity 0.2s; border: 1px solid transparent; white-space: nowrap; }
     .btn:hover { text-decoration: none; }
+    .btn.primary { background: #0071e3; color: #fff; }
+    .btn.primary:hover { background: #0077ed; }
     .btn.text { color: var(--teal); padding: 12px 8px; }
     .btn.text:hover { text-decoration: underline; }
     .btn .chev { transition: transform 0.2s var(--ease); display: inline-block; }
@@ -77,9 +79,6 @@
     .appstore .as-text { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
     .appstore .as-small { font-size: 11px; opacity: 0.85; letter-spacing: 0.02em; }
     .appstore .as-big { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
-    /* Not-yet-live placeholder — swap for the real .appstore link below when the app ships. */
-    .appstore.soon { background: #e8e8ed; color: var(--muted); cursor: default; }
-    .appstore.soon:hover { opacity: 1; transform: none; }
 
     /* Hero */
     .hero { text-align: center; padding: 64px 0 30px; }
@@ -199,18 +198,7 @@
     <h1>You are<br>your key.</h1>
     <p class="lede">Private messaging with no servers of our own and no accounts. Messages are end-to-end encrypted. When you're near, they usually travel over Bluetooth between phones; when you're apart, or Bluetooth is unavailable, they may pass sealed through public relays that cannot read them.</p>
     <div class="hero-cta">
-      <!-- COMING SOON placeholder — AeroNyra is not yet on the App Store.
-           When it ships, replace this .appstore.soon span with the real link, e.g.:
-           <a class="appstore" href="https://apps.apple.com/us/app/aeronyra/idXXXXXXXXXX">
-             <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-             <span class="as-text"><span class="as-small">Download on the</span><span class="as-big">App Store</span></span>
-           </a> -->
-      <span class="appstore soon" aria-label="Coming soon to the App Store">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-        </svg>
-        <span class="as-text"><span class="as-small">Coming soon</span><span class="as-big">App Store</span></span>
-      </span>
+      <a class="btn primary" href="https://apps.apple.com/us/app/aeronyra/id6789981872">Download on the App Store</a>
       <a class="btn text" href="#features">See how it works <span class="chev">›</span></a>
     </div>
 
@@ -350,14 +338,9 @@
   <section class="finale">
     <div class="wrap center">
       <h2 class="reveal">AeroNyra.</h2>
-      <p class="section-lede reveal">Coming soon to iPhone. Free, and built to collect nothing automatically.</p>
+      <p class="section-lede reveal">Available now on the App Store. Free, and built to collect nothing automatically.</p>
       <div class="cta-row reveal">
-        <span class="appstore soon" aria-label="Coming soon to the App Store">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-          <span class="as-text"><span class="as-small">Coming soon</span><span class="as-big">App Store</span></span>
-        </span>
+        <a class="btn primary" href="https://apps.apple.com/us/app/aeronyra/id6789981872">Download on the App Store</a>
         <a class="btn text" href="mailto:support@dormeusapps.com">Contact support <span class="chev">›</span></a>
       </div>
     </div>
